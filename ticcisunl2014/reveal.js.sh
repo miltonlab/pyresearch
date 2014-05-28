@@ -1,0 +1,1 @@
+ipython nbconvert TicCis2014.ipynb --to slides  --post serve
