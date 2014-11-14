@@ -1,2 +1,2 @@
 
-ipython nbconvert OpenDataPy.ipynb --to latex  --post PDF
+ipython nbconvert IPyNtut.ipynb --to latex  --post PDF
