@@ -1,2 +1,2 @@
 
-ipython nbconvert IPyNtut.ipynb --to latex  --post PDF
+ipython nbconvert --to latex  --post PDF IPyNBtut.ipynb
