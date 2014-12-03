@@ -1,4 +1,4 @@
-Procedimiento para instalar IPython en Windows desde cero
+Procedimiento rápido e informal para instalar IPython en Windows desde cero
 =========================================================
 
 Descargar e Instalar Python2.7 
