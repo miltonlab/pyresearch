@@ -1,0 +1,2241 @@
+
+
+
+% Header, overrides base
+
+    % Make sure that the sphinx doc style knows who it inherits from.
+    \def\sphinxdocclass{article}
+
+    % Declare the document class
+    \documentclass[letterpaper,10pt,english]{/usr/local/lib/python2.7/dist-packages/sphinx/texinputs/sphinxhowto}
+
+    % Imports
+    \usepackage[utf8]{inputenc}
+    \DeclareUnicodeCharacter{00A0}{\\nobreakspace}
+    \usepackage[T1]{fontenc}
+    \usepackage{babel}
+    \usepackage{times}
+    \usepackage{import}
+    \usepackage[Bjarne]{/usr/local/lib/python2.7/dist-packages/sphinx/texinputs/fncychap}
+    \usepackage{longtable}
+    \usepackage{/usr/local/lib/python2.7/dist-packages/sphinx/texinputs/sphinx}
+    \usepackage{multirow}
+
+    \usepackage{amsmath}
+    \usepackage{amssymb}
+    \usepackage{ucs}
+    \usepackage{enumerate}
+
+    % Used to make the Input/Output rules follow around the contents.
+    \usepackage{needspace}
+
+    % Pygments requirements
+    \usepackage{fancyvrb}
+    \usepackage{color}
+    % ansi colors additions
+    \definecolor{darkgreen}{rgb}{.12,.54,.11}
+    \definecolor{lightgray}{gray}{.95}
+    \definecolor{brown}{rgb}{0.54,0.27,0.07}
+    \definecolor{purple}{rgb}{0.5,0.0,0.5}
+    \definecolor{darkgray}{gray}{0.25}
+    \definecolor{lightred}{rgb}{1.0,0.39,0.28}
+    \definecolor{lightgreen}{rgb}{0.48,0.99,0.0}
+    \definecolor{lightblue}{rgb}{0.53,0.81,0.92}
+    \definecolor{lightpurple}{rgb}{0.87,0.63,0.87}
+    \definecolor{lightcyan}{rgb}{0.5,1.0,0.83}
+
+    % Needed to box output/input
+    \usepackage{tikz}
+        \usetikzlibrary{calc,arrows,shadows}
+    \usepackage[framemethod=tikz]{mdframed}
+
+    \usepackage{alltt}
+
+    % Used to load and display graphics
+    \usepackage{graphicx}
+    \graphicspath{ {figs/} }
+    \usepackage[Export]{adjustbox} % To resize
+
+    % used so that images for notebooks which have spaces in the name can still be included
+    \usepackage{grffile}
+
+
+    % For formatting output while also word wrapping.
+    \usepackage{listings}
+    \lstset{breaklines=true}
+    \lstset{basicstyle=\small\ttfamily}
+    \def\smaller{\fontsize{9.5pt}{9.5pt}\selectfont}
+
+    %Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    %Set pygments styles if needed...
+    
+        \definecolor{nbframe-border}{rgb}{0.867,0.867,0.867}
+        \definecolor{nbframe-bg}{rgb}{0.969,0.969,0.969}
+        \definecolor{nbframe-in-prompt}{rgb}{0.0,0.0,0.502}
+        \definecolor{nbframe-out-prompt}{rgb}{0.545,0.0,0.0}
+
+        \newenvironment{ColorVerbatim}
+        {\begin{mdframed}[%
+            roundcorner=1.0pt, %
+            backgroundcolor=nbframe-bg, %
+            userdefinedwidth=1\linewidth, %
+            leftmargin=0.1\linewidth, %
+            innerleftmargin=0pt, %
+            innerrightmargin=0pt, %
+            linecolor=nbframe-border, %
+            linewidth=1pt, %
+            usetwoside=false, %
+            everyline=true, %
+            innerlinewidth=3pt, %
+            innerlinecolor=nbframe-bg, %
+            middlelinewidth=1pt, %
+            middlelinecolor=nbframe-bg, %
+            outerlinewidth=0.5pt, %
+            outerlinecolor=nbframe-border, %
+            needspace=0pt
+        ]}
+        {\end{mdframed}}
+        
+        \newenvironment{InvisibleVerbatim}
+        {\begin{mdframed}[leftmargin=0.1\linewidth,innerleftmargin=3pt,innerrightmargin=3pt, userdefinedwidth=1\linewidth, linewidth=0pt, linecolor=white, usetwoside=false]}
+        {\end{mdframed}}
+
+        \renewenvironment{Verbatim}[1][\unskip]
+        {\begin{alltt}\smaller}
+        {\end{alltt}}
+    
+
+    % Help prevent overflowing lines due to urls and other hard-to-break 
+    % entities.  This doesn't catch everything...
+    \sloppy
+
+    % Document level variables
+    \title{OpenDataPy}
+    \date{November 11, 2014}
+    \release{}
+    \author{Unknown Author}
+    \renewcommand{\releasename}{}
+
+    % TODO: Add option for the user to specify a logo for his/her export.
+    \newcommand{\sphinxlogo}{}
+
+    % Make the index page of the document.
+    \makeindex
+
+    % Import sphinx document type specifics.
+     
+
+
+% Body
+
+    % Start of the document
+    \begin{document}
+
+        
+            \maketitle
+        
+
+        
+
+
+        
+        \section{Explorando OpenData con
+Python}\label{explorando-opendata-con-python}
+
+\subsubsection{Milton Labanda}\label{milton-labanda}
+
+\subsubsection{TIC-CIS-UNL2014}\label{tic-cis-unl2014}\subsection{Agenda}\label{agenda}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Que es OpenData?
+\item
+  Que es IPython?
+\item
+  Revisión flash de Estruturas de Datos en Python
+\item
+  La librería PANDAS (Python Data Analysis Library)
+\item
+  Series y DataFrames
+\item
+  Análisis de datos con pandas
+\end{itemize}\subsubsection{Qué es OpenData}\label{quuxe9-es-opendata}\emph{``Open Data es una filosofía cuya práctica persigue poner a
+disposición del público general una serie de datos en bruto que puedan
+ser explotados mediante la construcción de aplicaciones y servicios o
+bien para ser combinados con otros datos, de naturaleza igualmente
+abierta, para formar nuevos conjuntos de información reutilizables''}.
+{[}http://sergiocruz.codigofuerte.net/que-es-el-open-data-introduccion-a-los-datos-abiertos/{]}
+
+\textbf{Características}\\ * Disponibilidad y acceso\\ * Reutilización y
+Redistribución\\ * Participación Universal\textbf{Las 5 estrellas de OpenData}
+
+\textbf{1 estrella}: ofrecer los datos en cualquier formato, aunque sean
+difíciles de manipular, como un pdf o una imagen escaneada.\\\textbf{2
+estrellas}: entregar los datos de manera estructurada, como en un
+archivo excel con extension xls.\\\textbf{3 estrellas}: entregar los
+datos en un formato que no sea propietario, como csv en vez de
+excel\\\textbf{4 estrellas}: usar URIs para identificar cosas y
+propiedades, de manera que se pueda apuntar a los datos. Requiere usar
+un estándar RDF\\\textbf{5 estrellas}: vincular sus datos con los de
+otras personas, dotándolos de contexto. En la práctica, a que la
+información entregada también apunte a otras fuentes de datos. Por
+ejemplo, si publico información sobre un libro dentro de mis datos,
+enlazar descripciones del libro que pertenezcan a otros publicadores
+(por ejemplo DBPedia o Amazon).\begin{figure}[htbp]
+\centering
+\includegraphics{./5starsOD.jpg}
+\caption{5 stars}
+\end{figure}
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}1{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k+kn}{as} \PY{n+nn}{pd}
+\PY{k+kn}{import} \PY{n+nn}{matplotlib} \PY{k+kn}{as} \PY{n+nn}{plt}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}/usr/local/lib/python2.7/dist-packages/openpyxl/xml/\_\_init\_\_.py:35:
+UserWarning: The installed version of lxml is too old to be used with
+openpyxl
+  warnings.warn("The installed version of lxml is too old to be used
+with openpyxl")
+/usr/local/lib/python2.7/dist-packages/pandas/io/excel.py:626:
+UserWarning: Installed openpyxl is not supported at this time. Use
+>=1.6.1 and <2.0.0.
+  .format(openpyxl\_compat.start\_ver, openpyxl\_compat.stop\_ver))
+\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}2{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{datetime} \PY{k+kn}{import} \PY{n}{datetime}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+\subsubsection{Series}\label{series}
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}3{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{taller}\PY{o}{=}\PY{n}{pd}\PY{o}{.}\PY{n}{Series}\PY{p}{(}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{OpenData y Python}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{datetime}\PY{p}{(}\PY{l+m+mi}{2014}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{08h30}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{12h30}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}4{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{taller}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}4{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}0      OpenData y Python
+1    2014-04-05 00:00:00
+2                  08h30
+3                  12h30
+4                      4
+dtype: object\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}5{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{taller}\PY{o}{.}\PY{n}{index} \PY{o}{=} \PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Nombre}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{fecha}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{inicio}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{fin}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{duracion}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}6{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{taller}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}6{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}Nombre        OpenData y Python
+fecha       2014-04-05 00:00:00
+inicio                    08h30
+fin                       12h30
+duracion                      4
+dtype: object\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}7{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{}Estadios donde jugará Ecuador el Mundial Brazil 2014}
+\PY{c}{\PYZsh{}http://es.wikipedia.org/wiki/Copa\PYZus{}Mundial\PYZus{}de\PYZus{}F\PYZpc{}C3\PYZpc{}BAtbol\PYZus{}de\PYZus{}2014}
+\PY{n}{estadios} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{Series}\PY{p}{(}\PY{p}{\PYZob{}}\PY{l+s}{\PYZsq{}}\PY{l+s}{Belo Horizonte}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+m+mi}{69950}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Brasilia}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+m+mi}{70807}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Cuiabá}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+m+mi}{42500}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Curitiba}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+m+mi}{41375}\PY{p}{,}
+                      \PY{l+s}{\PYZsq{}}\PY{l+s}{Manaos}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+m+mi}{50000}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Porto Alegre}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+m+mi}{60000}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Rio de Janeiro}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+m+mi}{76525}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Sao Paulo}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+m+mi}{65281}\PY{p}{\PYZcb{}}\PY{p}{)}
+\PY{c}{\PYZsh{} Solo donde jugará Ecuador}
+\PY{c}{\PYZsh{}estadios = pd.Series(\PYZob{}\PYZsq{}Rio de Janeiro\PYZsq{}: 76525, \PYZsq{}Brasilia\PYZsq{}:70807, \PYZsq{}Curitiva\PYZsq{}:41375,}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}8{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{estadios}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}8{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}Belo Horizonte    69950
+Brasilia          70807
+Cuiabá            42500
+Curitiba          41375
+Manaos            50000
+Porto Alegre      60000
+Rio de Janeiro    76525
+Sao Paulo         65281
+dtype: int64\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}9{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{estadios}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Brasilia}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}9{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}70807\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}10{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Donde jugará Ecuador}
+\PY{n}{estadios}\PY{p}{[}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Brasilia}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Curitiba}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Rio de Janeiro}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{]}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}10{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}Brasilia          70807
+Curitiba          41375
+Rio de Janeiro    76525
+dtype: int64\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+\subsubsection{Selecciones}\label{selecciones}
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}11{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{estadios} \PY{o}{\PYZgt{}} \PY{l+m+mi}{50000}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}11{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}Belo Horizonte     True
+Brasilia           True
+Cuiabá            False
+Curitiba          False
+Manaos            False
+Porto Alegre       True
+Rio de Janeiro     True
+Sao Paulo          True
+dtype: bool\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}12{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{estadios}\PY{p}{[}\PY{n}{estadios} \PY{o}{\PYZgt{}} \PY{l+m+mi}{50000}\PY{p}{]}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}12{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}Belo Horizonte    69950
+Brasilia          70807
+Porto Alegre      60000
+Rio de Janeiro    76525
+Sao Paulo         65281
+dtype: int64\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}13{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{estadios}\PY{o}{.}\PY{n}{Brasilia}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}13{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}70807\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}14{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+s}{\PYZsq{}}\PY{l+s}{Sao Paulo}\PY{l+s}{\PYZsq{}} \PY{o+ow}{in} \PY{n}{estadios}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}14{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}True\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+\subsubsection{Operaciones}\label{operaciones}
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}15{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{estadios}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{estadios}\PY{o}{.}\PY{n}{median}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}15{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}(59554.75, 62640.5)\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}16{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{estadios} \PY{o}{/} \PY{l+m+mi}{2}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}16{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}Belo Horizonte    34975.0
+Brasilia          35403.5
+Cuiabá            21250.0
+Curitiba          20687.5
+Manaos            25000.0
+Porto Alegre      30000.0
+Rio de Janeiro    38262.5
+Sao Paulo         32640.5
+dtype: float64\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}17{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{estadios}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}17{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}Belo Horizonte    4893002500
+Brasilia          5013631249
+Cuiabá            1806250000
+Curitiba          1711890625
+Manaos            2500000000
+Porto Alegre      3600000000
+Rio de Janeiro    5856075625
+Sao Paulo         4261608961
+dtype: int64\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}18{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{ecuador} \PY{o}{=} \PY{n}{estadios}\PY{p}{[}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Brasilia}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Curitiba}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Rio de Janeiro}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{]}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}19{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{ecuador}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}19{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}Brasilia          70807
+Curitiba          41375
+Rio de Janeiro    76525
+dtype: int64\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}20{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{ecuador} \PY{o}{+} \PY{n}{estadios}\PY{p}{[}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Rio de Janeiro}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Curitiba}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Sao Paulo}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{]}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}20{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}Brasilia             NaN
+Curitiba           82750
+Rio de Janeiro    153050
+Sao Paulo            NaN
+dtype: float64\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+\subsection{Data Frames}\label{data-frames}
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}21{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Datos de ingresos de extranjeros al ecuador primer cuatrimestre segpún:}
+\PY{c}{\PYZsh{} http://servicios.turismo.gob.ec/images/estadisticas/Boletin\PYZhy{}abril\PYZhy{}2014\PYZhy{}comprimido.pdf}
+\PY{c}{\PYZsh{}turismo = pd.DataFrame(\PYZob{}\PYZsq{}mes\PYZsq{}: [\PYZsq{}enero\PYZsq{}, \PYZsq{}febrero\PYZsq{}, \PYZsq{}marzo\PYZsq{}, \PYZsq{}abril\PYZsq{}],}
+\PY{c}{\PYZsh{}                        \PYZsq{}a2012\PYZsq{} : [127116, 99521, 96948, 92627],}
+\PY{c}{\PYZsh{}                        \PYZsq{}a2013\PYZsq{} : [130842, 103768, 113361, 89669],}
+\PY{c}{\PYZsh{}                        \PYZsq{}a2014\PYZsq{} : [152576, 124584, 114007, 118614]}
+\PY{c}{\PYZsh{}                       \PYZcb{})}
+\PY{n}{turismo} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{\PYZob{}}\PY{l+s}{\PYZsq{}}\PY{l+s}{Anio}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{p}{[}\PY{l+m+mi}{2010}\PY{p}{,} \PY{l+m+mi}{2011}\PY{p}{,} \PY{l+m+mi}{2012}\PY{p}{,} \PY{l+m+mi}{2013}\PY{p}{,} \PY{l+m+mi}{2014}\PY{p}{]}\PY{p}{,}
+                        \PY{l+s}{\PYZsq{}}\PY{l+s}{enero}\PY{l+s}{\PYZsq{}} \PY{p}{:} \PY{p}{[}\PY{l+m+mi}{96109}\PY{p}{,} \PY{l+m+mi}{105548}\PY{p}{,} \PY{l+m+mi}{127116}\PY{p}{,} \PY{l+m+mi}{130842}\PY{p}{,} \PY{l+m+mi}{152576}\PY{p}{]}\PY{p}{,}
+                        \PY{l+s}{\PYZsq{}}\PY{l+s}{febrero}\PY{l+s}{\PYZsq{}} \PY{p}{:} \PY{p}{[}\PY{l+m+mi}{89924}\PY{p}{,} \PY{l+m+mi}{86421}\PY{p}{,} \PY{l+m+mi}{99521}\PY{p}{,} \PY{l+m+mi}{103768}\PY{p}{,} \PY{l+m+mi}{124584}\PY{p}{]}\PY{p}{,}
+                        \PY{l+s}{\PYZsq{}}\PY{l+s}{marzo}\PY{l+s}{\PYZsq{}} \PY{p}{:} \PY{p}{[}\PY{l+m+mi}{82452}\PY{p}{,} \PY{l+m+mi}{87495}\PY{p}{,} \PY{l+m+mi}{96948}\PY{p}{,} \PY{l+m+mi}{113361}\PY{p}{,} \PY{l+m+mi}{114007}\PY{p}{]}\PY{p}{,}
+                        \PY{l+s}{\PYZsq{}}\PY{l+s}{abril}\PY{l+s}{\PYZsq{}} \PY{p}{:} \PY{p}{[}\PY{l+m+mi}{70540}\PY{p}{,} \PY{l+m+mi}{87507}\PY{p}{,} \PY{l+m+mi}{92627}\PY{p}{,} \PY{l+m+mi}{89669}\PY{p}{,} \PY{l+m+mi}{118614}\PY{p}{]}
+                        \PY{p}{\PYZcb{}}\PY{p}{)}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}22{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{turismo}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}22{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}   Anio   abril   enero  febrero   marzo
+0  2010   70540   96109    89924   82452
+1  2011   87507  105548    86421   87495
+2  2012   92627  127116    99521   96948
+3  2013   89669  130842   103768  113361
+4  2014  118614  152576   124584  114007\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}23{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{turismo}\PY{o}{.}\PY{n}{columns}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}23{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}Index([u'Anio', u'abril', u'enero', u'febrero', u'marzo'],
+dtype='object')\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}24{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{turismo}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}24{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}              Anio          abril          enero        febrero
+marzo
+count     5.000000       5.000000       5.000000       5.000000
+5.000000
+mean   2012.000000   91791.400000  122438.200000  100843.600000
+98852.600000
+std       1.581139   17281.729986   22244.652643   15009.638846
+14506.479321
+min    2010.000000   70540.000000   96109.000000   86421.000000
+82452.000000
+25\%    2011.000000   87507.000000  105548.000000   89924.000000
+87495.000000
+50\%    2012.000000   89669.000000  127116.000000   99521.000000
+96948.000000
+75\%    2013.000000   92627.000000  130842.000000  103768.000000
+113361.000000
+max    2014.000000  118614.000000  152576.000000  124584.000000
+114007.000000\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}25{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{turismo}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{enero}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}25{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}0     96109
+1    105548
+2    127116
+3    130842
+4    152576
+Name: enero, dtype: int64\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}26{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{turismo}\PY{p}{[}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{enero}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{febrero}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{]}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}26{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}    enero  febrero
+0   96109    89924
+1  105548    86421
+2  127116    99521
+3  130842   103768
+4  152576   124584\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}27{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Aquellos años que en enero tienen valores sobre la media}
+\PY{n}{turismo}\PY{p}{[}\PY{n}{turismo}\PY{o}{.}\PY{n}{enero} \PY{o}{\PYZgt{}} \PY{n}{turismo}\PY{o}{.}\PY{n}{enero}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{]} \PY{p}{[}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Anio}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{enero}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{]}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}27{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}   Anio   enero
+2  2012  127116
+3  2013  130842
+4  2014  152576\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}28{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{unl} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{unl.csv}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}29{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{unl}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}29{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}    id                 periodo  matriculados  aprobados  reprobados
+0   25   Sep. 2008 - Feb. 2009         12616      10917        1680
+1   26   Mar. 2009 - Jul. 2009         11723      10012        1668
+2   28   Sep. 2009 - Feb. 2010         21545      18563        2863
+3   34   Mar. 2010 - Jul. 2010         21810      19413        2152
+4   36     Sep. 2010 Feb. 2011         21439      18868        2258
+5   42  Mar. 2011 - Jul. 2011          18071      16515        1492
+6   45     Sep. 2011 Feb. 2012         18011      16121        1721
+7   65     Mar. 2012 Jul. 2012         16049      14907         923
+8   68     Sep. 2012 Feb. 2013         12837      11647         984
+9   74     Mar. 2013 Jul. 2013         11980      11182         722
+10  77     Sep. 2013 Feb. 2014          9227       8478         749
+11  81          Mar.-Jul. 2014          8347          8           0\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}30{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{o}{\PYZpc{}}\PY{k}{matplotlib}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}Using matplotlib backend: Qt4Agg
+\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}31{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{}dibujo = unl[[\PYZsq{}matriculados\PYZsq{}, \PYZsq{}aprobados\PYZsq{}, \PYZsq{}reprobados\PYZsq{}]]}
+\PY{c}{\PYZsh{}f=plt.pylab.figure()}
+\PY{c}{\PYZsh{}plt.pylab.plot(y=unl[[\PYZsq{}matriculados\PYZsq{}, \PYZsq{}aprobados\PYZsq{}]])}
+\PY{c}{\PYZsh{}plt.pyplot.xlabel(unl.nombre, rotation=30, fontsize=7)}
+\PY{n}{seccion} \PY{o}{=} \PY{n}{unl}\PY{p}{[}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{matriculados}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{aprobados}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{reprobados}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{]}
+\PY{n}{seccion}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{unl}\PY{o}{.}\PY{n}{id}\PY{p}{,} \PY{n}{rot}\PY{o}{=}\PY{l+m+mi}{30}\PY{p}{)}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}31{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}<matplotlib.axes.AxesSubplot at 0xb55224c>\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}32{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{unl}\PY{o}{.}\PY{n}{matriculados}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x\PYZus{}compat}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{)}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}32{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}<matplotlib.axes.AxesSubplot at 0xb55adac>\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+\subsubsection{Consumo de datos JSON}\label{consumo-de-datos-json}
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}33{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Desde el portal http://datosabiertos.ec/}
+\PY{k+kn}{from} \PY{n+nn}{urllib2} \PY{k+kn}{import} \PY{n}{urlopen}
+\PY{n}{urlagua} \PY{o}{=} \PY{n}{urlopen}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{http://www.datosabiertos.ec/storage/f/2013\PYZhy{}10\PYZhy{}25T06}\PY{l+s}{\PYZpc{}}\PY{l+s}{3A52}\PY{l+s}{\PYZpc{}}\PY{l+s}{3A19.508Z/ecuador\PYZhy{}agua\PYZhy{}consumos.json}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\PY{n}{dataagua} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}json}\PY{p}{(}\PY{p}{(}\PY{n}{urlagua}\PY{p}{)}\PY{p}{)}
+\PY{n}{dataagua}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{)}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}33{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}           created\_at  id  maximoAmazonia  maximoConsumo  maximoCosta
+\textbackslash{}
+0 2013-10-25 06:45:20   1             999            999          999
+
+   maximoSierra  mediaAmazonia  mediaConsumo  mediaCosta  mediaSierra
+\textbackslash{}
+0           999         100.42         34.15       32.61        35.65
+
+      \ldots       valorMediaAmazonia  valorMediaCosta  valorMediaSierra
+\textbackslash{}
+0     \ldots                    10.71            11.25             11.38
+
+   valorMinimo  valorMinimoAmazonia  valorMinimoCosta
+valorMinimoSierra  \textbackslash{}
+0         0.89                    1              0.99
+0.89
+
+   valorTotalAmazonia valorTotalCosta  valorTotalSierra
+0             879.733          11.907            17.438
+
+[1 rows x 34 columns]\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}34{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nb}{len} \PY{p}{(}\PY{n}{dataagua}\PY{o}{.}\PY{n}{columns}\PY{p}{)}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}34{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}34\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}35{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{presupuesto}\PY{o}{=}\PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{presupuestoecuador2012.csv}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}36{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{presupuesto}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}36{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}      id      tipo                                   funcion  \textbackslash{}
+0      1  ingresos                         Funcion Ejecutiva
+1      2  ingresos                         Funcion Ejecutiva
+2      3  ingresos                         Funcion Ejecutiva
+3      4  ingresos                         Funcion Ejecutiva
+4      5  ingresos                         Funcion Ejecutiva
+5      6  ingresos                         Funcion Ejecutiva
+6      7  ingresos                         Funcion Ejecutiva
+7      8  ingresos                         Funcion Ejecutiva
+8      9  ingresos      Funcion Judicial y Justicia Indigena
+9     10  ingresos      Funcion Judicial y Justicia Indigena
+10    11  ingresos      Funcion Judicial y Justicia Indigena
+11    12  ingresos      Funcion Judicial y Justicia Indigena
+12    13  ingresos                         Funcion Ejecutiva
+13    14  ingresos                         Funcion Ejecutiva
+14    15  ingresos                         Funcion Ejecutiva
+15    16  ingresos                         Funcion Ejecutiva
+16    17  ingresos                         Funcion Ejecutiva
+17    18  ingresos                         Funcion Ejecutiva
+18    19  ingresos                         Funcion Ejecutiva
+19    20  ingresos                         Funcion Ejecutiva
+20    21  ingresos                         Funcion Ejecutiva
+21    22  ingresos                         Funcion Ejecutiva
+22    23  ingresos                         Funcion Ejecutiva
+23    24  ingresos                         Funcion Ejecutiva
+24    25  ingresos                         Funcion Ejecutiva
+25    26  ingresos                         Funcion Ejecutiva
+26    27  ingresos                         Funcion Ejecutiva
+27    28  ingresos                         Funcion Ejecutiva
+28    29  ingresos                         Funcion Ejecutiva
+29    30  ingresos                         Funcion Ejecutiva
+..   \ldots       \ldots                                       \ldots
+247  248    gastos                         Funcion Ejecutiva
+248  249    gastos                         Funcion Ejecutiva
+249  250    gastos                         Funcion Ejecutiva
+250  251    gastos                         Funcion Ejecutiva
+251  252    gastos                         Funcion Ejecutiva
+252  253    gastos                         Funcion Ejecutiva
+253  254    gastos                         Funcion Ejecutiva
+254  255    gastos                         Funcion Ejecutiva
+255  256    gastos                         Funcion Ejecutiva
+256  257    gastos                         Funcion Ejecutiva
+257  258    gastos                         Funcion Ejecutiva
+258  259    gastos                         Funcion Ejecutiva
+259  260    gastos                         Funcion Ejecutiva
+260  261    gastos                         Funcion Ejecutiva
+261  262    gastos                         Funcion Ejecutiva
+262  263    gastos                         Funcion Ejecutiva
+263  264    gastos                         Funcion Ejecutiva
+264  265    gastos                         Funcion Ejecutiva
+265  266    gastos                         Funcion Electoral
+266  267    gastos                         Funcion Electoral
+267  268    gastos                         Funcion Electoral
+268  269    gastos                         Funcion Electoral
+269  270    gastos                         Funcion Electoral
+270  271    gastos  Funcion de Transparecia y Control Social
+271  272    gastos  Funcion de Transparecia y Control Social
+272  273    gastos  Funcion de Transparecia y Control Social
+273  274    gastos  Funcion de Transparecia y Control Social
+274  275    gastos  Funcion de Transparecia y Control Social
+275  276    gastos  Funcion de Transparecia y Control Social
+276  277    gastos  Funcion de Transparecia y Control Social
+
+     codigo\_sectorial                               sectorial
+codigo\_grupo  \textbackslash{}
+0                   0                         Tesoro Nacional
+110000
+1                   0                         Tesoro Nacional
+130000
+2                   0                         Tesoro Nacional
+170000
+3                   0                         Tesoro Nacional
+180000
+4                   0                         Tesoro Nacional
+190000
+5                   0                         Tesoro Nacional
+280000
+6                   0                         Tesoro Nacional
+360000
+7                   0                         Tesoro Nacional
+370000
+8                   2                Sectorial Jurisdiccional
+130000
+9                   2                Sectorial Jurisdiccional
+140000
+10                  2                Sectorial Jurisdiccional
+170000
+11                  2                Sectorial Jurisdiccional
+190000
+12                  3                Sectorial Administrativo
+130000
+13                  3                Sectorial Administrativo
+140000
+14                  3                Sectorial Administrativo
+170000
+15                  3                Sectorial Administrativo
+180000
+16                  3                Sectorial Administrativo
+190000
+17                  4                      Sectorial Ambiente
+130000
+18                  4                      Sectorial Ambiente
+140000
+19                  4                      Sectorial Ambiente
+170000
+20                  4                      Sectorial Ambiente
+180000
+21                  4                      Sectorial Ambiente
+190000
+22                  4                      Sectorial Ambiente
+270000
+23                  4                      Sectorial Ambiente
+280000
+24                  5              Sectorial Asuntos Internos
+130000
+25                  5              Sectorial Asuntos Internos
+140000
+26                  5              Sectorial Asuntos Internos
+170000
+27                  5              Sectorial Asuntos Internos
+180000
+28                  5              Sectorial Asuntos Internos
+190000
+29                  5              Sectorial Asuntos Internos
+240000
+..                \ldots                                     \ldots
+\ldots
+247                17               Sectorial Comunicaciones
+560000
+248                17               Sectorial Comunicaciones
+570000
+249                17               Sectorial Comunicaciones
+580000
+250                17               Sectorial Comunicaciones
+710000
+251                17               Sectorial Comunicaciones
+730000
+252                17               Sectorial Comunicaciones
+750000
+253                17               Sectorial Comunicaciones
+770000
+254                17               Sectorial Comunicaciones
+840000
+255                17               Sectorial Comunicaciones
+990000
+256                18  Sectorial Desarrollo Urbano y Vivienda
+510000
+257                18  Sectorial Desarrollo Urbano y Vivienda
+530000
+258                18  Sectorial Desarrollo Urbano y Vivienda
+570000
+259                18  Sectorial Desarrollo Urbano y Vivienda
+580000
+260                18  Sectorial Desarrollo Urbano y Vivienda
+710000
+261                18  Sectorial Desarrollo Urbano y Vivienda
+730000
+262                18  Sectorial Desarrollo Urbano y Vivienda
+750000
+263                18  Sectorial Desarrollo Urbano y Vivienda
+770000
+264                18  Sectorial Desarrollo Urbano y Vivienda
+840000
+265                22                               Electoral
+510000
+266                22                               Electoral
+530000
+267                22                               Electoral
+570000
+268                22                               Electoral
+580000
+269                22                               Electoral
+840000
+270                23          Transparencia y Control Social
+510000
+271                23          Transparencia y Control Social
+530000
+272                23          Transparencia y Control Social
+570000
+273                23          Transparencia y Control Social
+580000
+274                23          Transparencia y Control Social
+750000
+275                23          Transparencia y Control Social
+840000
+276                23          Transparencia y Control Social
+990000
+
+                                                 grupo         valor
+0                                            Impuestos  1.035529e+10
+1                              Tasas y Contribuciones   1.400000e+07
+2                               Rentas de Inversiones   1.235651e+08
+3               Transferencias y Donaciones Corrientes  4.513268e+09
+4                                       Otros Ingresos  2.346282e+07
+5    Transferencias y Donaciones de Capital e Inver\ldots  3.900782e+09
+6                               Financiamiento Publico  4.848331e+09
+7                                     Saldo Disponible  8.250046e+08
+8                              Tasas y Contribuciones   7.000000e+05
+9                          Venta de Bienes y Servicios  2.486546e+05
+10                     Rentas de Inversiones y Multas   2.000000e+04
+11                                      Otros Ingresos  9.900000e+04
+12                             Tasas y Contribuciones   2.997259e+07
+13                         Venta de Bienes y Servicios  1.158068e+07
+14                     Rentas de Inversiones y Multas   1.595620e+06
+15              Transferencias y Donaciones Corrientes  6.000000e+03
+16                                      Otros Ingresos  8.787844e+07
+17                             Tasas y Contribuciones   2.661529e+07
+18                         Venta de Bienes y Servicios  7.200000e+05
+19                     Rentas de Inversiones y Multas   5.220581e+04
+20              Transferencias y Donaciones Corrientes  2.531655e+06
+21                                      Otros Ingresos  3.938130e+05
+22                         Recuperacion de Inversiones  4.500000e+04
+23   Transferencias y Donaciones de Capital e Inver\ldots  1.434604e+07
+24                             Tasas y Contribuciones   1.873236e+08
+25                         Venta de Bienes y Servicios  1.501852e+06
+26                     Rentas de Inversiones y Multas   2.516888e+07
+27              Transferencias y Donaciones Corrientes  1.511706e+07
+28                                      Otros Ingresos  9.808192e+07
+29                    Venta de Activos no Financieros   3.575694e+05
+..                                                 \ldots           \ldots
+247                                 Gastos Financieros  1.212400e+05
+248                            Otros Gastos Corrientes  1.688347e+06
+249             Transferencias y Donaciones Corrientes  3.811273e+06
+250                  Gastos en Personal para Inversion  7.077641e+04
+251                  Bienes y Servicios para Inversion  8.947016e+07
+252                                     Obras Publicas  8.313134e+08
+253                          Otros Gastos de Inversion  1.248378e+05
+254                          Bienes de Larga Duracion   2.049127e+07
+255                                      Otros Pasivos  3.000000e+05
+256                                 Gastos en Personal  1.568705e+07
+257                      Bienes y Servicios de Consumo  2.515521e+06
+258                            Otros Gastos Corrientes  6.359800e+04
+259             Transferencias y Donaciones Corrientes  3.802200e+04
+260                  Gastos en Personal para Inversion  1.248416e+07
+261                  Bienes y Servicios para Inversion  4.269032e+07
+262                                     Obras Publicas  3.569684e+07
+263                          Otros Gastos de Inversion  1.744568e+04
+264                          Bienes de Larga Duracion   3.556989e+05
+265                                 Gastos en Personal  2.459072e+07
+266                      Bienes y Servicios de Consumo  5.768076e+07
+267                            Otros Gastos Corrientes  1.008782e+06
+268             Transferencias y Donaciones Corrientes  5.741835e+06
+269                          Bienes de Larga Duracion   3.000000e+05
+270                                 Gastos en Personal  1.471988e+08
+271                      Bienes y Servicios de Consumo  2.715284e+07
+272                            Otros Gastos Corrientes  1.390417e+06
+273             Transferencias y Donaciones Corrientes  2.702768e+06
+274                                     Obras Publicas  1.035335e+06
+275                          Bienes de Larga Duracion   2.866046e+06
+276                                      Otros Pasivos  5.000000e+04
+
+[277 rows x 8 columns]\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}37{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{presupuesto}\PY{p}{[}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{funcion}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{valor}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{]}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{presupuesto}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{funcion}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{rot}\PY{o}{=}\PY{l+m+mi}{30}\PY{p}{)}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}37{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}<matplotlib.axes.AxesSubplot at 0xb84c2ac>\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}38{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{unl}\PY{o}{.}\PY{n}{to\PYZus{}excel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{unl.xlsx}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                
+            \begin{alltt}
+
+        --------------------------------------------------------------
+-------------
+    ValueError                                Traceback (most recent
+call last)
+
+
+
+        <ipython-input-38-655d5cd80617> in <module>()
+    ----> 1 unl.to\_excel('unl.xlsx')
+
+
+
+
+        /usr/local/lib/python2.7/dist-
+packages/pandas/util/decorators.pyc in wrapper(*args, **kwargs)
+         58                 else:
+         59                     kwargs[new\_arg\_name] = old\_arg\_value
+    ---> 60             return func(*args, **kwargs)
+         61         return wrapper
+         62     return \_deprecate\_kwarg
+
+
+
+
+        /usr/local/lib/python2.7/dist-packages/pandas/core/frame.pyc
+in to\_excel(self, excel\_writer, sheet\_name, na\_rep, float\_format,
+columns, header, index, index\_label, startrow, startcol, engine,
+merge\_cells, encoding, inf\_rep)
+       1214
+       1215         if isinstance(excel\_writer, compat.string\_types):
+    -> 1216             excel\_writer = ExcelWriter(excel\_writer,
+engine=engine)
+       1217             need\_save = True
+       1218
+
+
+
+
+        /usr/local/lib/python2.7/dist-packages/pandas/io/excel.pyc in
+\_\_new\_\_(cls, path, engine, **kwargs)
+        425                     error = ValueError("No engine for
+filetype: '\%s'" \% ext)
+        426                     raise error
+    --> 427             cls = get\_writer(engine)
+        428
+        429         return object.\_\_new\_\_(cls)
+
+
+
+
+        /usr/local/lib/python2.7/dist-packages/pandas/io/excel.pyc in
+get\_writer(engine\_name)
+         49         return \_writers[engine\_name]
+         50     except KeyError:
+    ---> 51         raise ValueError("No Excel writer '\%s'" \%
+engine\_name)
+         52
+         53
+
+
+
+
+        ValueError: No Excel writer 'openpyxl'
+
+\end{alltt}
+        
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}39{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{cis}\PY{o}{=}\PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{carrerasistemas.csv}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}40{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{cis}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}40{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}    matriculados            nombre\_periodo  id\_periodo
+0            617  Sep. 2008 - Febrero 2009          25
+1            417     Mar. 2009 - Jul. 2009          26
+2            466  Sep. 2009 - Febrero 2010          28
+3            369     Mar. 2010 - Jul. 2010          34
+4            427    Sep. 2010 Febrero 2011          36
+5            382    Mar. 2011 - Jul. 2011           42
+6            415    Sep. 2011 Febrero 2012          45
+7            306       Mar. 2012 Jul. 2012          65
+8            271    Sep. 2012 Febrero 2013          68
+9            267       Mar. 2013 Jul. 2013          74
+10           192       Sep. 2013 Feb. 2014          77
+11           248            Mar.-Jul. 2014          81\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+
+    % Make sure that atleast 4 lines are below the HR
+    \needspace{4\baselineskip}
+
+    
+        \vspace{6pt}
+        \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-in-prompt}In\hspace{4pt}{[}41{]}:\hspace{4pt}}\\*
+        \vspace{-2.65\baselineskip}
+        \begin{ColorVerbatim}
+            \vspace{-0.7\baselineskip}
+            \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{cis}\PY{p}{[}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{matriculados}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{]}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{cis}\PY{o}{.}\PY{n}{nombre\PYZus{}periodo}\PY{p}{,} \PY{n}{rot}\PY{o}{=}\PY{l+m+mi}{30}\PY{p}{)}
+\end{Verbatim}
+
+            
+                \vspace{-0.2\baselineskip}
+            
+        \end{ColorVerbatim}
+    
+
+    
+
+        % If the first block is an image, minipage the image.  Else
+        % request a certain amount of space for the input text.
+        \needspace{4\baselineskip}
+        
+        
+
+            % Add document contents.
+            
+                \makebox[0.1\linewidth]{\smaller\hfill\tt\color{nbframe-out-prompt}Out\hspace{4pt}{[}41{]}:\hspace{4pt}}\\*
+                \vspace{-2.55\baselineskip}\begin{InvisibleVerbatim}
+                \vspace{-0.5\baselineskip}
+\begin{alltt}<matplotlib.axes.AxesSubplot at 0xba3fe4c>\end{alltt}
+
+            \end{InvisibleVerbatim}
+            
+        
+    
+
+        
+
+        \renewcommand{\indexname}{Index}
+        \printindex
+
+    % End of document
+    \end{document}
+
+
