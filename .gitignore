@@ -22,6 +22,7 @@ var/
 .installed.cfg
 *.egg
 
+.ipynb_checkpoints/
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
