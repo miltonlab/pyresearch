@@ -1,0 +1,18 @@
+Learned Lessons:
+
+ * Use always "UTF-8" encoding at getting data
+ * Think in wilcard or character when getting data to be used as Null o NA future value when run analysis
+ * At cleaning
+
+The great question: 
+
+How related Admission Rate and academic excelence based on qualifications ?
+
+Background
+
+The Universidad Nacional de Loja is a institution of higher education at southern region of Ecuador, it was born at 1859 since then hundreds of thousands students have been educated in their classrooms. It is only since 2008 that this university begin automate your academic processes throught an Academic Management System in wich the students, teachers and related employees begun to enter academic information.
+
+
+Introduction
+
+With the excuse for build my first paper i am trying to analyze the academic data from the Universidad Nacional de Loja institution
