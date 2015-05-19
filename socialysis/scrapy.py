@@ -21,5 +21,6 @@ f.close()
 import pandas as pd
 tweets = pd.DataFrame()
 tweets['text'] = [t['text'] for t in data]
-tweets['lang'] = [t['lang'] for t in data]
+# for after use with sentimental140
+tweets['language'] = [t['language'] for t in data]
 tweets['contry'] = [t['place']['country'] if t['place'] else None for t in data]
